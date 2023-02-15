@@ -34,6 +34,12 @@ jobs:
       - name: kind delete
         run: kind delete cluster
         
+      - name: display file
+        run: |
+          echo "File content (begin)"
+          cat ~/.kube/config
+          echo "File content(end)"
+
       - name: my debug
         run: kubectl config view
         
