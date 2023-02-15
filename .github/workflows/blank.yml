@@ -33,8 +33,7 @@ jobs:
         
       - name: my debug
         run: |
-          cat ~/.kube/config
-          ls -la $HOME/.kube
+          echo "KUBECONFIG : $KUBECONFIG"
 
       - name: my debug
         run: kubectl config view
