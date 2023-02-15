@@ -25,14 +25,18 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
-      - name: my debug env
-        run: printenv
+      - name: kind create
+        run: ./create-cluster.sh
 
+      - name: kind delete
+        run: kind delete cluster
+        
       - name: my debug
         run: kubectl config view
         
       - name: my debug
         run: |
+          ls -la ~/.kube/config
           echo "KUBECONFIG : $KUBECONFIG"
 
       - name: my debug
