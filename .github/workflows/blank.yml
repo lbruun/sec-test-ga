@@ -38,9 +38,11 @@ jobs:
         run: kubectl config view
         
       - name: my debug
-        run: |
+        run: |        
           ls -la ~/.kube/config
           echo "KUBECONFIG : $KUBECONFIG"
+          echo "File content:"
+          xxd -p ~/.kube/config
 
       - name: my debug
         run: kubectl config view
