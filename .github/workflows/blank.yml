@@ -25,6 +25,9 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
+      - name: chmod
+        run: chmod +x ./create-cluster.sh
+        
       - name: kind create
         run: ./create-cluster.sh
 
